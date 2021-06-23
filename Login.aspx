@@ -5,13 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login || portal </title>
+    <link href="src/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+
+
+
+    <form id="Login" runat="server">
         <div>
             <table style="width: 100%;">
                 <caption class="style1">
-                    <strong>Login Form</strong>
+                    <strong>Login</strong>
                 </caption>
 
                 <tr>
