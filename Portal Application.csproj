@@ -89,6 +89,7 @@
     <Content Include="src\css\bootstrap.min.css" />
     <Content Include="src\css\bootstrap.rtl.css" />
     <Content Include="src\css\bootstrap.rtl.min.css" />
+    <Content Include="src\css\custom.css" />
     <Content Include="src\js\bootstrap.bundle.js" />
     <Content Include="src\js\bootstrap.bundle.min.js" />
     <Content Include="src\js\bootstrap.esm.js" />

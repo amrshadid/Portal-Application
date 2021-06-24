@@ -35,7 +35,7 @@ namespace Portal_Application
             }
             else
             {
-                Massage.Text = "You're username and password is incorrect";
+                Massage.Text = "You're username password is incorrect";
                 Massage.ForeColor = System.Drawing.Color.Red;
 
             }
