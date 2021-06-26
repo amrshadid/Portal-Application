@@ -18,7 +18,7 @@ namespace Portal_Application
         protected void Login_btn(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand("select * from students where password=@password and (username=@username or id=ISNUMERIC(@username))", con);
+            SqlCommand cmd = new SqlCommand("select * from student where password=@password and (username=@username or id=ISNUMERIC(@username))", con);
             cmd.Parameters.AddWithValue("@username", username.Text);
             cmd.Parameters.AddWithValue("@password", password.Text);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);

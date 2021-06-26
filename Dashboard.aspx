@@ -40,10 +40,9 @@
                     <asp:Label ID="Wellcom" runat="server">Wellcome </asp:Label></h3>
 
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-end">
 
-                <asp:Button ID="modal" runat="server" Height="47px" OnClick="modal_btn"
-                    Text="My schedule" CssClass="btn btn-dark btn-block" />
+
 
                 <h3 id="ConfirmedHours" runat="server" class="d-inline-flex">you are register:18&nbsp;hours</h3>
 
@@ -131,107 +130,44 @@
             </div>
         </div>
         <hr />
-        <div class="p-3 d-flex align-items-center">
+
+
+        <div id="registerTable" runat="server" class="d-none">
+            <div class="p-3 d-flex align-items-center">
                 <asp:DropDownList CssClass="dropdown" ID="DropDownList1" runat="server">
-                    <asp:ListItem Value="">Please Select</asp:ListItem>
-                    <asp:ListItem>New Delhi </asp:ListItem>
-                    <asp:ListItem>Greater Noida</asp:ListItem>
-                    <asp:ListItem>NewYork</asp:ListItem>
-                    <asp:ListItem>Paris</asp:ListItem>
-                    <asp:ListItem>London</asp:ListItem>
                 </asp:DropDownList>
-            <div class="p-3">
-            <asp:Button ID="select" runat="server" OnClick="select_Click" Text="Submit" />
+                <div class="p-3">
+                    <asp:Button ID="select" runat="server" OnClick="select_Click" Text="Submit" />
+                </div>
+                <br />
+                <asp:Label ID="Label1" runat="server" EnableViewState="False"></asp:Label>
             </div>
-            <br />
-            <asp:Label ID="Label1" runat="server" EnableViewState="False"></asp:Label>
-        </div>
-        <div class="container-fluid">
-            <div class="table-responsive schedule" id="schedule">
-                <table class="table table-striped table-hover table-dark">
-                    <thead>
-                        <tr>
-                            <th>Course Code<br />
-                            </th>
-                            <th>
-                                <br />
-                                Course Name<br />
-                            </th>
-                            <th>
-                                <br />
-                                <strong>Activity</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <strong>Confirmed Hours</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <strong>Section</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <br />
-                                <strong>Instructor</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <br />
-                                Faculty<br />
-                            </th>
-                            <th>
-                                <br />
-                                <br />
-                                Add
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>100210</td>
-                            <td>Web programming</td>
-                            <td>Lecture<br />
-                            </td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Amr Shadid</td>
-                            <td>EIT</td>
-                            <td>
-                                <button class="btn btn-outline-primary" type="button"><i class="icon ion-plus"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>100210</td>
-                            <td>Web programming</td>
-                            <td>Lecture<br />
-                            </td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Amr Shadid</td>
-                            <td>EIT</td>
-                            <td>
-                                <button class="btn btn-outline-primary" type="button"><i class="icon ion-plus"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>100210</td>
-                            <td>Web programming</td>
-                            <td>Lecture<br />
-                            </td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Amr Shadid</td>
-                            <td>EIT</td>
-                            <td>
-                                <button class="btn btn-outline-primary" type="button"><i class="icon ion-plus"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="container-fluid">
+                <asp:GridView ID="GridView1" class="table table-striped table-hover table-dark" runat="server" AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:BoundField DataField="Id" HeaderText="Course Code" />
+                        <asp:BoundField DataField="course_name" HeaderText="Course Name" />
+                        <asp:BoundField DataField="Activity" HeaderText="Activity" />
+                        <asp:BoundField DataField="confirmed_hours" HeaderText="Confirmed Hours" />
+                        <asp:BoundField DataField="section" HeaderText="Section" />
+                        <asp:BoundField DataField="start_at" HeaderText="start_at" />
+                        <asp:BoundField DataField="end_at" HeaderText="end_at" />
+                        <asp:BoundField DataField="instructor" HeaderText="Instructor" />
+                        <asp:BoundField DataField="faculty" HeaderText="Faculty" />
+                        <asp:BoundField DataField="faculty" HeaderText="Faculty" />
+                    </Columns>
+                </asp:GridView>
 
             </div>
 
+
         </div>
+
+        <div id="actionbtn" runat="server" class="p-3 d-flex justify-content-center ">
+            <asp:Button ID="modal" runat="server" Height="47px" OnClick="modal_btn"
+                Text="start registertion" CssClass="btn btn-danger btn-block" />
+        </div>
+
     </form>
 
 
