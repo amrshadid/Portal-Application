@@ -31,7 +31,7 @@ namespace Portal_Application
             {
                 Session["id"] = username.Text;
                 Response.Redirect("Dashboard.aspx");
-                Session.RemoveAll();
+                
             }
             else
             {

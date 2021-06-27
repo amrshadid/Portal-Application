@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login || portal </title>
-    <link href="src/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="src/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -44,7 +44,7 @@
     </div>
 
 
-    <script src="src/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>

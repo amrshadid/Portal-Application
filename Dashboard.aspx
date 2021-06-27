@@ -6,8 +6,9 @@
 <head runat="server">
     <title>Dashborad</title>
 
-    <link href="src/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="src/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="assets/fonts/ionicons.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -34,99 +35,45 @@
         </div>
         <hr />
         <div class="container-fluid">
+
             <div class="p-2 d-flex justify-content-between">
 
                 <h3 class="d-inline-flex">
-                    <asp:Label ID="Wellcom" runat="server">Wellcome </asp:Label></h3>
+                    <asp:Label ID="Wellcom" runat="server">Wellcome </asp:Label>
+                </h3>
+
+                <asp:Label ID="ErrorMessage" runat="server"></asp:Label>
 
             </div>
+
             <div class="d-flex justify-content-end">
 
 
 
-                <h3 id="ConfirmedHours" runat="server" class="d-inline-flex">you are register:18&nbsp;hours</h3>
+                <h3 class="d-inline-flex">
+                    <asp:Label ID="ConfirmedHours" runat="server"> </asp:Label>
+                </h3>
 
             </div>
             <div id="scheduleTable" runat="server" class="table-responsive schedule">
-                <table class="table table-striped table-hover table-dark">
-                    <thead>
-                        <tr>
-                            <th>Course Code<br />
-                            </th>
-                            <th>
-                                <br />
-                                Course Name<br />
-                            </th>
-                            <th>
-                                <br />
-                                <strong>Activity</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <strong>Confirmed Hours</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <strong>Section</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <br />
-                                <strong>Instructor</strong><br />
-                            </th>
-                            <th>
-                                <br />
-                                <br />
-                                Faculty<br />
-                            </th>
-                            <th>
-                                <br />
-                                <br />
-                                Add</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>100210</td>
-                            <td>Web programming</td>
-                            <td>Lecture<br />
-                            </td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Amr Shadid</td>
-                            <td>EIT</td>
-                            <td>
-                                <button class="btn btn-outline-danger" type="button"><i class="icon ion-android-delete"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>100210</td>
-                            <td>Web programming</td>
-                            <td>Lecture<br />
-                            </td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Amr Shadid</td>
-                            <td>EIT</td>
-                            <td>
-                                <button class="btn btn-outline-danger" type="button"><i class="icon ion-android-delete"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>100210</td>
-                            <td>Web programming</td>
-                            <td>Lecture<br />
-                            </td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Amr Shadid</td>
-                            <td>EIT</td>
-                            <td>
-                                <button class="btn btn-outline-danger" type="button"><i class="icon ion-android-delete"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <asp:GridView ID="Schedule_Table" class="table table-striped table-hover table-dark" runat="server" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowCommand="GridView_Action">
+                    <Columns>
+                        <asp:BoundField DataField="Id" HeaderText="Course Code" />
+                        <asp:BoundField DataField="course_name" HeaderText="Course Name" />
+                        <asp:BoundField DataField="Activity" HeaderText="Activity" />
+                        <asp:BoundField DataField="confirmed_hours" HeaderText="Confirmed Hours" />
+                        <asp:BoundField DataField="section" HeaderText="Section" />
+                        <asp:BoundField DataField="Room" HeaderText="Room" />
+                        <asp:BoundField DataField="Day" HeaderText="Day" />
+                        <asp:BoundField DataField="start_at" HeaderText="start_at" />
+                        <asp:BoundField DataField="end_at" HeaderText="end_at" />
+                        <asp:BoundField DataField="instructor" HeaderText="Instructor" />
+                        <asp:BoundField DataField="faculty" HeaderText="Faculty" />
+                        <asp:ButtonField HeaderText="delete" CommandName="drop_record" ControlStyle-CssClass="btn btn-outline-danger" Text="<i class='icon ion-android-delete'></i>" />
+
+
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
         <hr />
@@ -134,27 +81,31 @@
 
         <div id="registerTable" runat="server" class="d-none">
             <div class="p-3 d-flex align-items-center">
-                <asp:DropDownList CssClass="dropdown" ID="DropDownList1" runat="server">
+                <asp:DropDownList CssClass="dropdown" ID="Faculty" runat="server">
                 </asp:DropDownList>
                 <div class="p-3">
-                    <asp:Button ID="select" runat="server" OnClick="select_Click" Text="Submit" />
+                    <asp:Button ID="select" CssClass="btn btn-dark" runat="server" OnClick="select_Click" Text="Select" />
                 </div>
                 <br />
                 <asp:Label ID="Label1" runat="server" EnableViewState="False"></asp:Label>
             </div>
             <div class="container-fluid">
-                <asp:GridView ID="GridView1" class="table table-striped table-hover table-dark" runat="server" AutoGenerateColumns="false">
+                <asp:GridView ID="Registertion_Table" class="table table-striped table-hover table-dark" runat="server" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowCommand="GridView_Action">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Course Code" />
                         <asp:BoundField DataField="course_name" HeaderText="Course Name" />
                         <asp:BoundField DataField="Activity" HeaderText="Activity" />
                         <asp:BoundField DataField="confirmed_hours" HeaderText="Confirmed Hours" />
                         <asp:BoundField DataField="section" HeaderText="Section" />
+                        <asp:BoundField DataField="Room" HeaderText="Room" />
+                        <asp:BoundField DataField="Day" HeaderText="Day" />
                         <asp:BoundField DataField="start_at" HeaderText="start_at" />
                         <asp:BoundField DataField="end_at" HeaderText="end_at" />
                         <asp:BoundField DataField="instructor" HeaderText="Instructor" />
                         <asp:BoundField DataField="faculty" HeaderText="Faculty" />
-                        <asp:BoundField DataField="faculty" HeaderText="Faculty" />
+                        <asp:ButtonField HeaderText="Add" CommandName="join" ControlStyle-CssClass="btn btn-outline-primary" Text="<i class='icon ion-plus'></i>" />
+
+
                     </Columns>
                 </asp:GridView>
 
