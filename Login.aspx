@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <div>
-                    <label for="exampleInputEmail1" class="form-label">User name</label>
+                    <label for="username" class="form-label">User name</label>
                     <asp:TextBox ID="username" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div>
@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <div>
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password</label>
                     <asp:TextBox ID="password" TextMode="Password" CssClass="form-control" runat="server"> </asp:TextBox>
                 </div>
                 <div>
